@@ -11,11 +11,15 @@ import AVFoundation
 
 class VideoViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        tabBarController?.tabBar.tintColor = UIColor(red: 0.8745, green: 0.1922, blue: 0.1804, alpha: 1.0)
+        tabBarController?.tabBar.unselectedItemTintColor = .gray
     }
 
-    @IBAction func bmiImageTapped(_ sender: UIButton) {
+    @IBAction func bmiVideoTapped(_ sender: UIButton) {
             if let url = Bundle.main.url(forResource: "BMI", withExtension: "mp4") {
                 playVideo(url: url)
             } else {
@@ -23,20 +27,20 @@ class VideoViewController: UIViewController {
             }
         }
 
-    @IBAction func mealTapped(_ sender: UIButton)
+    @IBAction func mealPlanTapped(_ sender: UIButton)
     {
-        if let url = Bundle.main.url(forResource: "healthfood", withExtension: "mp4") {
+        if let url = Bundle.main.url(forResource: "dietAndMealPrep", withExtension: "mp4") {
             playVideo(url: url)
         } else {
-            print("healthfood.mp4 not found")
+            print("dietAndMealPrep.mp4 not found")
         }
     }
 
-    @IBAction func exerciseTapped(_ sender: UIButton) {
-        if let url = Bundle.main.url(forResource: "videoplayback", withExtension: "mp4") {
+    @IBAction func stretchingTapped(_ sender: UIButton) {
+        if let url = Bundle.main.url(forResource: "stretching", withExtension: "mp4") {
             playVideo(url: url)
         } else {
-            print("videoplayback.mp4 not found")
+            print("stretching.mp4 not found")
         }
     }
     

@@ -214,7 +214,8 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="wKC-z0-4gA" kind="showDetail" id="9nj-VW-hav"/>
+                                                    <action selector="webButtonTapped:" destination="7cM-5M-Ksp" eventType="touchUpInside" id="hlQ-Yd-SUA"/>
+                                                    <segue destination="wKC-z0-4gA" kind="show" id="gqZ-hw-ygc"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stethoscope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-Zb-wnc">
@@ -246,7 +247,8 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="wKC-z0-4gA" kind="showDetail" id="e2E-Ix-Axh"/>
+                                                    <action selector="webButtonTapped:" destination="7cM-5M-Ksp" eventType="touchUpInside" id="zJh-QJ-tSH"/>
+                                                    <segue destination="wKC-z0-4gA" kind="show" id="hs5-Ir-1Lv"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="heart.text.clipboard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jTg-jH-XmM">
@@ -278,7 +280,8 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="wKC-z0-4gA" kind="showDetail" id="nAH-jX-0Bn"/>
+                                                    <action selector="webButtonTapped:" destination="7cM-5M-Ksp" eventType="touchUpInside" id="oZ4-78-Jgg"/>
+                                                    <segue destination="wKC-z0-4gA" kind="show" id="Xas-gG-ijq"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pHg-pz-J5I">
@@ -315,25 +318,50 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Links" image="link.circle" catalog="system" selectedImage="link.circle.fill" id="BVb-Pc-JWU"/>
                     <navigationItem key="navigationItem" id="VK7-tH-XtV"/>
+                    <connections>
+                        <outlet property="WebMDButton" destination="Fha-dZ-YZF" id="fSQ-MX-t8U"/>
+                        <outlet property="appointmentButton" destination="nS1-KU-2xI" id="bft-Go-VyL"/>
+                        <outlet property="nearestClinicButton" destination="Z4y-zz-Dds" id="fxJ-QN-jDv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOJ-69-wzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="148.85496183206106" y="805.63380281690149"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="TAZ-TQ-Boq">
             <objects>
-                <viewController id="wKC-z0-4gA" customClass="ViewController" customModule="EliKrouse_Assign6" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wKC-z0-4gA" customClass="WebViewController" customModule="EliKrouse_Assign6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6DO-np-Suh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mz-z0-9Dh">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="f6I-KR-LjI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Mz-z0-9Dh" firstAttribute="bottom" secondItem="f6I-KR-LjI" secondAttribute="bottom" id="4F3-xq-wqa"/>
+                            <constraint firstItem="1Mz-z0-9Dh" firstAttribute="leading" secondItem="f6I-KR-LjI" secondAttribute="leading" id="6De-OY-cNV"/>
+                            <constraint firstItem="1Mz-z0-9Dh" firstAttribute="top" secondItem="6DO-np-Suh" secondAttribute="top" id="eLF-Pe-aqV"/>
+                            <constraint firstItem="1Mz-z0-9Dh" firstAttribute="trailing" secondItem="f6I-KR-LjI" secondAttribute="trailing" id="gCB-HK-QSU"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5jo-PT-6S3"/>
+                    <connections>
+                        <outlet property="webView" destination="1Mz-z0-9Dh" id="IP7-Mp-d0p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jo9-FQ-ide" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="806"/>
+            <point key="canvasLocation" x="1055.7251908396945" y="805.63380281690149"/>
         </scene>
         <!--Videos-->
         <scene sceneID="r6x-1X-UQg">
@@ -347,6 +375,11 @@
                                 <rect key="frame" x="-78" y="-199" width="549" height="866"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A5b-ML-NOp">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health Cinema" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLh-7f-Igo">
                                 <rect key="frame" x="0.0" y="118" width="393" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -354,11 +387,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A5b-ML-NOp">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-cZ-aBR">
                                 <rect key="frame" x="61" y="485" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -367,7 +395,11 @@
                                 <buttonConfiguration key="configuration" style="filled" title="">
                                     <imageReference key="image" image="figure.run" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                    <color key="baseBackgroundColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="bmiVideoTapped:" destination="Jhp-n5-rSn" eventType="touchUpInside" id="ScC-gw-Ka4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMq-fs-ADM">
                                 <rect key="frame" x="229" y="485" width="100" height="100"/>
@@ -377,22 +409,31 @@
                                 <buttonConfiguration key="configuration" style="filled" title="">
                                     <imageReference key="image" image="fork.knife" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                    <color key="baseBackgroundColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="mealPlanTapped:" destination="Jhp-n5-rSn" eventType="touchUpInside" id="5qO-PC-Rhf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5S-qS-QNP">
-                                <rect key="frame" x="146" y="635" width="100" height="100"/>
+                                <rect key="frame" x="146.66666666666666" y="635" width="99.666666666666657" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="">
                                     <imageReference key="image" image="figure" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                    <color key="baseBackgroundColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="stretchingTapped:" destination="Jhp-n5-rSn" eventType="touchUpInside" id="3ci-15-LEq"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Kkq-WW-8JM">
-                                <rect key="frame" x="76" y="210" width="240" height="247"/>
+                                <rect key="frame" x="70" y="193" width="253" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Each button below will launch a video for you to watch. The videos include details on BMI, eating, and stretching exercises. BMI is not a perfect indication of health, but its categories can help the majority population understand their possible health risks of their weight, and give notice to their need to stay healthy and fit.  
+</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -433,7 +474,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nAH-jX-0Bn"/>
+        <segue reference="gqZ-hw-ygc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ManRunningIRL" width="500" height="350"/>
