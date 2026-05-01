@@ -22,16 +22,22 @@ class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var BMIMessageLabel: UILabel!
     
+    @IBOutlet weak var CalculateButton: UIButton!
+    
+    @IBOutlet weak var BackgroundView: UIView!
+    
+    @IBOutlet weak var backgroundLeadingConstraint: NSLayoutConstraint!
+    
     @IBAction func CalculateTapped(_ sender: Any)
     {
-        guard let height = Double(HeightTextField.text!), let weight = Double(WeightTextField.text!) else
+        guard let heightText = HeightTextField.text, let height = Double(heightText), let weightText = WeightTextField.text, let weight = Double(weightText) else
         {
             showAlert(title: "Missing Input!", message: "Please Input a valid double for each inputs.")
             return
         }
         
-        let bmi = height * weight
-        var bmiText = "Your BMI is \(bmi), that means you're "
+        let bmi = weight / (height*height*(0.0001))
+        var bmiText = "Your BMI is \(String(format: "%.2f", bmi)), that means you're "
         switch(bmi)
         {
         case 0..<18.5:
@@ -55,7 +61,25 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func SexSCChanged(_ sender: Any)
     {
+        guard let choice = sender as? UISegmentedControl else
+        {
+            return
+        }
         
+        switch(choice.selectedSegmentIndex)
+        {
+            case 0:
+                HideSwitch.onTintColor = .link
+                CalculateButton.tintColor = .link
+                BGAnimate(x: -131)
+                
+            case 1:
+                HideSwitch.onTintColor = .systemPink
+                CalculateButton.tintColor = .systemPink
+                BGAnimate(x: -405)
+            default:
+                return
+        }
     }
     
     @IBAction func HideSwitched(_ sender: Any)
@@ -65,7 +89,7 @@ class CalculatorViewController: UIViewController {
             return
         }
         
-        if(hideSwitch.isOn)
+        if(!hideSwitch.isOn)
         {
             HideLabel.text = "Show"
             BMIMessageLabel.isHidden = true
@@ -78,7 +102,19 @@ class CalculatorViewController: UIViewController {
     
     func showAlert(title: String, message: String)
     {
-        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    func BGAnimate(x: CGFloat)
+    {
+        //backgroundLeadingConstraint.constant = x;
+        UIView.animate(withDuration: 0.9) {
+            self.backgroundLeadingConstraint.constant = x;
+            self.BackgroundView.layoutIfNeeded()
+        }
     }
     
     override func viewDidLoad() {
@@ -86,6 +122,4 @@ class CalculatorViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-    
-
 }
