@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -213,7 +214,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="wKC-z0-4gA" kind="presentation" id="eKQ-wa-SZK"/>
+                                                    <segue destination="wKC-z0-4gA" kind="showDetail" id="9nj-VW-hav"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="stethoscope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-Zb-wnc">
@@ -245,7 +246,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="wKC-z0-4gA" kind="presentation" id="Klg-39-Fcg"/>
+                                                    <segue destination="wKC-z0-4gA" kind="showDetail" id="e2E-Ix-Axh"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="heart.text.clipboard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jTg-jH-XmM">
@@ -277,7 +278,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="wKC-z0-4gA" kind="presentation" id="2yS-jE-Zps"/>
+                                                    <segue destination="wKC-z0-4gA" kind="showDetail" id="nAH-jX-0Bn"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="map" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pHg-pz-J5I">
@@ -341,14 +342,72 @@
                     <view key="view" contentMode="scaleToFill" id="pam-Yl-BVY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="cinemaDrapes" translatesAutoresizingMaskIntoConstraints="NO" id="RZg-X6-dg6">
+                                <rect key="frame" x="-78" y="-199" width="549" height="866"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health Cinema" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLh-7f-Igo">
+                                <rect key="frame" x="0.0" y="118" width="393" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A5b-ML-NOp">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-cZ-aBR">
+                                <rect key="frame" x="61" y="485" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="figure.run" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMq-fs-ADM">
+                                <rect key="frame" x="229" y="485" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="fork.knife" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5S-qS-QNP">
+                                <rect key="frame" x="146" y="635" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="">
+                                    <imageReference key="image" image="figure" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Kkq-WW-8JM">
+                                <rect key="frame" x="76" y="210" width="240" height="247"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8n1-hh-eHk"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Videos" image="video" catalog="system" selectedImage="video.fill" id="VfR-sV-e8b"/>
+                    <tabBarItem key="tabBarItem" title="Videos" image="video" catalog="system" selectedImage="video.fill" id="VfR-sV-e8b">
+                        <color key="badgeColor" red="0.89051711560000002" green="0.21911963819999999" blue="0.2053279579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26V-Qd-iuo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="806"/>
+            <point key="canvasLocation" x="1954.9618320610687" y="805.63380281690149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gYq-ln-cgp">
@@ -374,11 +433,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eKQ-wa-SZK"/>
+        <segue reference="nAH-jX-0Bn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ManRunningIRL" width="500" height="350"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="cinemaDrapes" width="1509" height="980"/>
+        <image name="figure" catalog="system" width="117" height="128"/>
+        <image name="figure.run" catalog="system" width="115" height="128"/>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
         <image name="heart.text.clipboard" catalog="system" width="103" height="128"/>
         <image name="link.circle" catalog="system" width="128" height="123"/>
         <image name="link.circle.fill" catalog="system" width="128" height="123"/>
