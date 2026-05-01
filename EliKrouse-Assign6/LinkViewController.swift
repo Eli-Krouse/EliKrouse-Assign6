@@ -7,9 +7,12 @@
 
 import UIKit
 import WebKit
+import CoreLocation
 
 class LinkViewController: UIViewController {
 
+    let locationManager = CLLocationManager()
+    
     
     @IBOutlet weak var appointmentButton: UIButton!
     
@@ -17,8 +20,11 @@ class LinkViewController: UIViewController {
     
     @IBOutlet weak var nearestClinicButton: UIButton!
     
+    @IBOutlet weak var outerStackView: UIStackView!
     
     var passableURL: String?
+    
+    
     
     @IBAction func webButtonTapped(_ sender: Any)
     {
@@ -32,7 +38,7 @@ class LinkViewController: UIViewController {
             case 0:
                 passableURL = "a"
             case 1:
-                passableURL = "b"
+                passableURL = "https://www.webmd.com/diet/body-bmi-calculator"
             case 2:
                 passableURL = "c"
             default:
@@ -44,16 +50,18 @@ class LinkViewController: UIViewController {
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController
-        vc?.websiteURL = passableURL
-        
+            vc?.websiteURL = passableURL
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        outerStackView.isLayoutMarginsRelativeArrangement = true
+        outerStackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        
         tabBarController?.tabBar.tintColor = .link
         tabBarController?.tabBar.unselectedItemTintColor = .gray
     }
-
+    
 
 }
